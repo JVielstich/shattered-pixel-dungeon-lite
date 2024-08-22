@@ -50,17 +50,8 @@ import com.shatteredpixel.shatteredpixeldungeon.items.armor.ClothArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.CloakOfShadows;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch;
 import com.shatteredpixel.shatteredpixeldungeon.items.food.Food;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfHealing;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfInvisibility;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfLiquidFlame;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfMindVision;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfStrength;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfIdentify;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfLullaby;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfMagicMapping;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfMirrorImage;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfRage;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfUpgrade;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.*;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.*;
 import com.shatteredpixel.shatteredpixeldungeon.items.wands.WandOfMagicMissile;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.SpiritBow;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Dagger;
@@ -105,7 +96,34 @@ public enum HeroClass {
 		Waterskin waterskin = new Waterskin();
 		waterskin.collect();
 
+		// Identify all scrolls
 		new ScrollOfIdentify().identify();
+		new ScrollOfLullaby().identify();
+		new ScrollOfMagicMapping().identify();
+		new ScrollOfMirrorImage().identify();
+		new ScrollOfRage().identify();
+		new ScrollOfRecharging().identify();
+		new ScrollOfRemoveCurse().identify();
+		new ScrollOfRetribution().identify();
+		new ScrollOfTeleportation().identify();
+		new ScrollOfTerror().identify();
+		new ScrollOfTransmutation().identify();
+		new ScrollOfUpgrade().identify();
+
+		// Identify all potions
+		new PotionOfExperience().identify();
+		new PotionOfFrost().identify();
+		new PotionOfHaste().identify();
+		new PotionOfHealing().identify();
+		new PotionOfInvisibility().identify();
+		new PotionOfLevitation().identify();
+		new PotionOfLiquidFlame().identify();
+		new PotionOfMindVision().identify();
+		new PotionOfParalyticGas().identify();
+		new PotionOfPurity().identify();
+		new PotionOfStrength().identify();
+		new PotionOfToxicGas().identify();
+
 
 		switch (this) {
 			case WARRIOR:
@@ -166,8 +184,8 @@ public enum HeroClass {
 			hero.belongings.armor.affixSeal(new BrokenSeal());
 		}
 
-		new PotionOfHealing().identify();
-		new ScrollOfRage().identify();
+		// new PotionOfHealing().identify();
+		// new ScrollOfRage().identify();
 	}
 
 	private static void initMage( Hero hero ) {
@@ -180,8 +198,8 @@ public enum HeroClass {
 
 		Dungeon.quickslot.setSlot(0, staff);
 
-		new ScrollOfUpgrade().identify();
-		new PotionOfLiquidFlame().identify();
+		// new ScrollOfUpgrade().identify();
+		// new PotionOfLiquidFlame().identify();
 	}
 
 	private static void initRogue( Hero hero ) {
@@ -197,8 +215,8 @@ public enum HeroClass {
 		Dungeon.quickslot.setSlot(0, cloak);
 		Dungeon.quickslot.setSlot(1, knives);
 
-		new ScrollOfMagicMapping().identify();
-		new PotionOfInvisibility().identify();
+		// new ScrollOfMagicMapping().identify();
+		// new PotionOfInvisibility().identify();
 	}
 
 	private static void initHuntress( Hero hero ) {
@@ -209,8 +227,8 @@ public enum HeroClass {
 
 		Dungeon.quickslot.setSlot(0, bow);
 
-		new PotionOfMindVision().identify();
-		new ScrollOfLullaby().identify();
+		// new PotionOfMindVision().identify();
+		// new ScrollOfLullaby().identify();
 	}
 
 	private static void initDuelist( Hero hero ) {
@@ -224,8 +242,8 @@ public enum HeroClass {
 		Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
 		Dungeon.quickslot.setSlot(1, spikes);
 
-		new PotionOfStrength().identify();
-		new ScrollOfMirrorImage().identify();
+		// new PotionOfStrength().identify();
+		// new ScrollOfMirrorImage().identify();
 	}
 
 	public String title() {
