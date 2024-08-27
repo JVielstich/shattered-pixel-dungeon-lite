@@ -1822,6 +1822,8 @@ public class Hero extends Char {
 				updateHT( true );
 				attackSkill++;
 				defenseSkill++;
+				STR+=lvl%2;	// increase strength every other level
+				HP=HT;		// heal hero on level up
 
 			} else {
 				Buff.prolong(this, Bless.class, Bless.DURATION);

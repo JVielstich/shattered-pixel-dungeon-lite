@@ -47,7 +47,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.BrokenSeal;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.items.Waterskin;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.ClothArmor;
-import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.CloakOfShadows;
+import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.*;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch;
 import com.shatteredpixel.shatteredpixeldungeon.items.food.Food;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.*;
@@ -175,37 +175,45 @@ public enum HeroClass {
 	}
 
 	private static void initWarrior( Hero hero ) {
+		ThrowingStone stones;
+		HornOfPlenty horn;
+
 		(hero.belongings.weapon = new WornShortsword()).identify();
-		ThrowingStone stones = new ThrowingStone();
+		stones = new ThrowingStone();
 		stones.quantity(3).collect();
 		Dungeon.quickslot.setSlot(0, stones);
+
+		horn = new HornOfPlenty();
+		(hero.belongings.artifact = horn).identify();
+		hero.belongings.artifact.activate(hero);
 
 		if (hero.belongings.armor != null){
 			hero.belongings.armor.affixSeal(new BrokenSeal());
 		}
-
-		// new PotionOfHealing().identify();
-		// new ScrollOfRage().identify();
 	}
 
 	private static void initMage( Hero hero ) {
 		MagesStaff staff;
+		UnstableSpellbook spellbook;
 
 		staff = new MagesStaff(new WandOfMagicMissile());
+		spellbook = new UnstableSpellbook();
 
 		(hero.belongings.weapon = staff).identify();
 		hero.belongings.weapon.activate(hero);
 
-		Dungeon.quickslot.setSlot(0, staff);
+		(hero.belongings.artifact = spellbook).identify();
+		hero.belongings.artifact.activate(hero);
 
-		// new ScrollOfUpgrade().identify();
-		// new PotionOfLiquidFlame().identify();
+		Dungeon.quickslot.setSlot(0, staff);
 	}
 
 	private static void initRogue( Hero hero ) {
+		CloakOfShadows cloak;
+
 		(hero.belongings.weapon = new Dagger()).identify();
 
-		CloakOfShadows cloak = new CloakOfShadows();
+		cloak = new CloakOfShadows();
 		(hero.belongings.artifact = cloak).identify();
 		hero.belongings.artifact.activate( hero );
 
@@ -214,36 +222,37 @@ public enum HeroClass {
 
 		Dungeon.quickslot.setSlot(0, cloak);
 		Dungeon.quickslot.setSlot(1, knives);
-
-		// new ScrollOfMagicMapping().identify();
-		// new PotionOfInvisibility().identify();
 	}
 
 	private static void initHuntress( Hero hero ) {
+		SandalsOfNature sandals;
 
 		(hero.belongings.weapon = new Gloves()).identify();
+
+		sandals = new SandalsOfNature();
+		(hero.belongings.artifact = sandals).identify();
+		hero.belongings.artifact.activate(hero);
 		SpiritBow bow = new SpiritBow();
 		bow.identify().collect();
 
 		Dungeon.quickslot.setSlot(0, bow);
-
-		// new PotionOfMindVision().identify();
-		// new ScrollOfLullaby().identify();
 	}
 
 	private static void initDuelist( Hero hero ) {
+		TimekeepersHourglass hourglass;
 
 		(hero.belongings.weapon = new Rapier()).identify();
 		hero.belongings.weapon.activate(hero);
+
+		hourglass = new TimekeepersHourglass();
+		(hero.belongings.artifact = hourglass).identify();
+		hero.belongings.artifact.activate(hero);
 
 		ThrowingSpike spikes = new ThrowingSpike();
 		spikes.quantity(2).collect();
 
 		Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
 		Dungeon.quickslot.setSlot(1, spikes);
-
-		// new PotionOfStrength().identify();
-		// new ScrollOfMirrorImage().identify();
 	}
 
 	public String title() {

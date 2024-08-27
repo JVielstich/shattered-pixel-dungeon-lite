@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         //the R8 version bundled with AGP 8.1.0+ causes crashes on very old Android versions
         //This affects ICS and Lollipop at least, maybe also KitKat
-        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.android.tools.build:gradle:8.5.2'
     }
 }
 
@@ -16,8 +16,8 @@ allprojects {
         appName = 'Shattered Pixel Dungeon Lite'
         appPackageName = 'com.spdlite.shatteredpixeldungeonlite'
 
-        appVersionCode = 783
-        appVersionName = '2.4.3'
+        appVersionCode = 784
+        appVersionName = '2.4.4'
 
         appJavaCompatibility = JavaVersion.VERSION_1_8
 
